@@ -31,4 +31,89 @@ btnNight.onclick=()=>{heroImg.src='assets/hero_night.png';btnNight.classList.add
 const p1=document.getElementById('p1');const p3=document.getElementById('p3');
 btnDay.addEventListener('click',()=>{p1.src='assets/prod_day.png';p3.src='assets/prod_day.png';});
 btnNight.addEventListener('click',()=>{p1.src='assets/prod_night.png';p3.src='assets/prod_night.png';});
+</script><!-- ===== 產品介紹模組 ===== -->
+<section id="products" class="container mx-auto px-4 py-10 bg-white">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-bold">產品介紹</h2>
+    <div id="jt-filterbar" class="flex flex-wrap gap-2">
+      <button data-cat="全部" class="jt-filter px-3 py-1 rounded-full border bg-black text-white">全部</button>
+      <button data-cat="交通錐／連桿" class="jt-filter px-3 py-1 rounded-full border">交通錐／連桿</button>
+      <button data-cat="交通安全器材" class="jt-filter px-3 py-1 rounded-full border">交通安全器材</button>
+      <button data-cat="警示燈" class="jt-filter px-3 py-1 rounded-full border">警示燈</button>
+      <button data-cat="拒馬" class="jt-filter px-3 py-1 rounded-full border">拒馬</button>
+    </div>
+  </div>
+  <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
+
+<script>
+const productsData = [
+  {
+    category: "交通錐／連桿",
+    title: "伸縮式交通錐",
+    model: "DC-A10-01",
+    use: "道路維修、交維產品",
+    spec: "展開高約 70 cm；可摺疊收納",
+    source: "https://jointac.tw/product_view.php?id=67&topage=1",
+    image: "https://jointac.tw/images/product/155263703481.jpg"
+  },
+  {
+    category: "交通安全器材",
+    title: "三角車輪檔",
+    model: "DC-I04",
+    use: "防止下滑",
+    spec: "重量 1.6 / 3 / 6.2 kg；顏色 黃 / 黑",
+    source: "https://jointac.tw/product_view.php?id=65&topage=1",
+    image: "https://jointac.tw/images/product/155289453271.jpg"
+  },
+  {
+    category: "警示燈",
+    title: "握把型太陽能 LED 警示燈",
+    use: "路面施工警示",
+    spec: "自動充電；連續使用 200 小時以上；防水",
+    source: "https://jointac.tw/product_view.php?id=35&topage=1",
+    image: "https://jointac.tw/images/product/155263677061.jpg"
+  },
+  {
+    category: "拒馬",
+    title: "四尺三排式拒馬",
+    use: "路障",
+    spec: "錏板 / 鋁板；正副牌可客製",
+    source: "https://jointac.tw/product_view.php?id=39&topage=1",
+    image: "https://jointac.tw/images/product/155314658771.JPG"
+  }
+];
+
+function createCard(p) {
+  return `
+    <article class="rounded-2xl shadow-lg overflow-hidden bg-white hover:shadow-xl transition">
+      ${p.image ? `<img class="w-full h-48 object-cover" src="${p.image}" alt="${p.title}">` : ""}
+      <div class="p-4">
+        <div class="text-xs text-gray-500 mb-1">${p.category}</div>
+        <h3 class="text-lg font-semibold">${p.title}</h3>
+        ${p.model ? `<div class="text-sm text-gray-600 mt-1">型號：${p.model}</div>` : ""}
+        ${p.use ? `<div class="text-sm text-gray-600 mt-1">用途：${p.use}</div>` : ""}
+        ${p.spec ? `<div class="text-sm text-gray-600 mt-1">規格：${p.spec}</div>` : ""}
+        <div class="mt-4">
+          <a href="${p.source}" target="_blank" class="text-blue-600 text-sm underline">來源</a>
+        </div>
+      </div>
+    </article>`;
+}
+
+const grid = document.getElementById("product-grid");
+function render(cat = "全部") {
+  const filtered = cat === "全部" ? productsData : productsData.filter(p => p.category === cat);
+  grid.innerHTML = filtered.map(createCard).join("");
+}
+
+document.querySelectorAll(".jt-filter").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".jt-filter").forEach(b => b.classList.remove("bg-black","text-white"));
+    btn.classList.add("bg-black","text-white");
+    render(btn.dataset.cat);
+  });
+});
+
+render();
 </script></body></html>
