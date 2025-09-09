@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>產品型錄｜展通交通器材</title><link rel="stylesheet" href="style.css"/>
+<style>
+  .catalog-layout{display:grid;grid-template-columns:220px 1fr;gap:16px;align-items:start}
+  .catalog-sidebar{padding:8px 0}
+  .catalog-sidebar .cat-list{list-style:none;margin:0;padding:0}
+  .catalog-sidebar .cat-list li{margin:6px 0}
+  .catalog-sidebar .cat-list a{display:inline-block;padding:6px 10px;border-radius:6px;text-decoration:none}
+  .catalog-sidebar .cat-list a:hover{text-decoration:underline}
+  /* RWD */
+  @media (max-width: 900px){
+    .catalog-layout{grid-template-columns:1fr}
+    .catalog-sidebar{order:2}
+    .catalog-main{order:1}
+  }
+</style>
+
+
+<style>
+  /* Hybrid version: show sidebar on desktop, dropdown on mobile */
+  #catalog-category{display:none;} /* hide dropdown by default */
+  @media (max-width: 900px){
+    .catalog-layout{grid-template-columns:1fr}
+    .catalog-sidebar{display:none;} /* hide sidebar on small screens */
+    .catalog-main{order:1}
+    #catalog-category{display:inline-block;} /* show dropdown on small screens */
+  }
+</style>
+
+</head><body>
+<header class="header"><div class="wrap">
+<div style="display:flex;align-items:center;gap:12px;"><div style="width:36px;height:36px;background:var(--yellow);border-radius:6px;border:2px solid #111;"></div><strong>展通交通器材</strong></div>
+<nav class="nav"><a href="index.html">首頁</a><a href="products.html">產品型錄</a><a href="#">實績案例</a><a href="#">聯絡我們</a></nav>
+<div class="cta"><a class="btn primary" href="tel:047988055">立即洽詢</a></div></div></header>
+<section class="section"><h2>產品型錄</h2>
+
+<div class="catalog-layout">
+  <aside class="catalog-sidebar">
+    <ul class="cat-list">
+      <li><a href="https://jointac.tw/product.php?cat=1">交通錐/連桿</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=2">交通安全器材</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=3">警示燈</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=4">拒馬</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=5">救生器材</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=6">工程帽/背心</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=7">施工標誌牌</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=8">哈雷燈/附掛式警示燈</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=9">配件類</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=10">導標類/指揮棒</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=11">25燈</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=12">LED輔二</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=13">牌面標誌</a></li>
+      <li><a href="https://jointac.tw/product.php?cat=14">鐵管</a></li>
+    </ul>
+  </aside>
+  <div class="catalog-main">
+
+<div class="filterbar"><input class="input" placeholder="搜尋關鍵字（例：箭頭、LED、導標）" style="min-width:260px;">
+
+<select id="catalog-category" class="input">
+  <option value="">全部分類</option>
+  <option value="1">交通錐/連桿</option>
+  <option value="2">交通安全器材</option>
+  <option value="3">警示燈</option>
+  <option value="4">拒馬</option>
+  <option value="5">救生器材</option>
+  <option value="6">工程帽/背心</option>
+  <option value="7">施工標誌牌</option>
+  <option value="8">哈雷燈/附掛式警示燈</option>
+  <option value="9">配件類</option>
+  <option value="10">導標類/指揮棒</option>
+  <option value="11">25燈</option>
+  <option value="12">LED輔二</option>
+  <option value="13">牌面標誌</option>
+  <option value="14">鐵管</option>
+</select>
+
+<script>
+  const catSelect = document.querySelector('#catalog-category');
+  catSelect?.addEventListener('change', () => {
+    if (!catSelect.value) return;
+    window.location.href = `https://jointac.tw/product.php?cat=${catSelect.value}`;
+  });
+</script>
+
+<span class="small">＊含日/夜切換的卡片會自動顯示 🌙 標記</span></div>
+<div class="grid3">
+<div class="card"><div class="img"><span class="badge">🌙 日/夜</span><img src="assets/prod_day.png" alt=""></div><div class="body"><strong>太陽能 LED 箭頭牌 A25</strong><div class="small">遠距可視 / 模組化維修 / IP65</div></div></div>
+<div class="card"><div class="img"><img src="assets/prod_day.png" alt=""></div><div class="body"><strong>LED 輔二標示燈</strong><div class="small">高亮、省電、輕量</div></div></div>
+<div class="card"><div class="img"><span class="badge">🌙 日/夜</span><img src="assets/prod_day.png" alt=""></div><div class="body"><strong>導標與警示牌組</strong><div class="small">耐候結構 / 版面清晰</div></div></div>
+</div></div>
+</div>
+</section>
+<footer class="footer"><div class="wrap"><div><strong>展通交通器材有限公司</strong><br/>彰化縣伸港鄉中山路927巷12弄28號<br/>04-7988055 / jointac066@gmail.com</div><div><div class="small">© Jointac Traffic Safety. All rights reserved.</div></div></div></footer>
+<div class="contactbar"><a href="tel:047988055">📞 立即來電</a><a href="#">💬 LINE 洽詢</a><a href="https://maps.google.com" target="_blank">📍 導航</a></div>
+</body></html>
