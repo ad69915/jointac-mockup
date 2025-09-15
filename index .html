@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>展通交通器材｜交通器材主題官網樣稿</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* 新增按鈕樣式 */
+    .toggle button {
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      margin: 0 4px;
+      font-weight: bold;
+    }
+    .toggle button.default {
+      background: #e0e0e0;
+      color: #111;
+    }
+    .toggle button.day-active {
+      background: #FFD700; /* 黃底 */
+      color: #0044CC;      /* 藍字 */
+    }
+    .toggle button.night-active {
+      background: #0044CC; /* 藍底 */
+      color: #FFD700;      /* 黃字 */
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="wrap">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:36px;height:36px;background:var(--yellow);border-radius:6px;border:2px solid #111;"></div>
+      <strong>展通交通器材</strong>
+    </div>
+    <nav class="nav">
+      <a href="index.html">首頁</a>
+      <a href="products.html">產品型錄</a>
+      <a href="#">實績案例</a>
+      <a href="#">最新消息</a>
+      <a href="#">關於我們</a>
+      <a href="#">聯絡我們</a>
+    </nav>
+    <div class="cta">
+      <a class="btn secondary" href="tel:047988055">04-7988055</a>
+      <a class="btn primary" href="#">加入 LINE 洽詢</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="badge">TRAFFIC SAFETY THEME</span>
+      <h1 class="h1">全天候高能見度，工區更安全</h1>
+      <p class="sub">太陽能箭頭牌、LED 輔二、導標與施工標誌｜模組化設計、耐候耐用</p>
+      <div class="kv">
+        <span class="pill">高亮可視</span>
+        <span class="pill">耐候可靠</span>
+        <span class="pill">模組化維保</span>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:10px;">
+        <a class="btn primary" href="products.html">查看產品型錄</a>
+        <a class="btn" style="border:2px solid #111;" href="#">下載型錄 PDF</a>
+      </div>
+    </div>
+    <div class="imgbox">
+      <div class="toggle">
+        <button id="btnDay" class="day-active">☀️ 日間</button>
+        <button id="btnNight" class="default">🌙 夜間</button>
+      </div>
+      <img id="heroImg" src="assets/hero_day.png" alt="Hero Day"/>
+    </div>
+  </div>
+</section>
+
+<section class="section"><h2>產品分類</h2>
+  <div class="grid3">
+    <div class="card">
+      <div class="img"><span class="badge">LED</span><img src="assets/prod_day.png" alt=""></div>
+      <div class="body"><strong>LED 箭頭牌</strong><div class="small">遠距可視 / 日夜清晰 / 模組化維修</div></div>
+    </div>
+    <div class="card">
+      <div class="img"><span class="badge">錐 / 防撞</span><img src="assets/prod_day.png" alt=""></div>
+      <div class="body"><strong>交通錐 / 防撞柱</strong><div class="small">耐候材質 / 抗UV / 高反光膜</div></div>
+    </div>
+    <div class="card">
+      <div class="img"><span class="badge">導標</span><img src="assets/prod_day.png" alt=""></div>
+      <div class="body"><strong>導標與施工標誌</strong><div class="small">支架穩固 / 版面清晰 / 易更換</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section"><h2>精選產品（日/夜切換示意）</h2>
+  <div class="grid3">
+    <div class="card">
+      <div class="img"><span class="badge">日/夜</span><img id="p1" src="assets/prod_day.png" alt=""></div>
+      <div class="body"><strong>太陽能 LED 箭頭牌</strong><div class="kv"><span class="pill">IP65</span><span class="pill">遠距可視</span><span class="pill">模組化</span></div></div>
+    </div>
+    <div class="card">
+      <div class="img"><img src="assets/prod_day.png" alt=""></div>
+      <div class="body"><strong>LED 輔二（單日圖示例）</strong><div class="kv"><span class="pill">輕量</span><span class="pill">易維護</span></div></div>
+    </div>
+    <div class="card">
+      <div class="img"><span class="badge">日/夜</span><img id="p3" src="assets/prod_day.png" alt=""></div>
+      <div class="body"><strong>警示燈與導標</strong><div class="kv"><span class="pill">高反光</span><span class="pill">抗UV</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="wrap"><div>
+  <strong>展通交通器材有限公司</strong><br/>彰化縣伸港鄉中山路927巷12弄28號<br/>04-7988055 / jointac066@gmail.com
+</div><div><div class="small">© Jointac Traffic Safety. All rights reserved.</div></div></div></footer>
+
+<div class="contactbar">
+  <a href="tel:047988055">📞 立即來電</a>
+  <a href="#">💬 LINE 洽詢</a>
+  <a href="https://maps.google.com" target="_blank">📍 導航</a>
+</div>
+
+<script>
+const heroImg=document.getElementById('heroImg');
+const btnDay=document.getElementById('btnDay');
+const btnNight=document.getElementById('btnNight');
+const p1=document.getElementById('p1');
+const p3=document.getElementById('p3');
+
+function resetButtons(){
+  btnDay.className='default';
+  btnNight.className='default';
+}
+
+btnDay.onclick=()=>{
+  heroImg.src='assets/hero_day.png';
+  p1.src='assets/prod_day.png';
+  p3.src='assets/prod_day.png';
+  resetButtons();
+  btnDay.classList.add('day-active');
+};
+
+btnNight.onclick=()=>{
+  heroImg.src='assets/hero_night.png';
+  p1.src='assets/prod_night.png';
+  p3.src='assets/prod_night.png';
+  resetButtons();
+  btnNight.classList.add('night-active');
+};
+</script>
+</body>
+</html>
