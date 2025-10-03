@@ -1,0 +1,95 @@
+
+/* fixed.css — global layout for header stripes, hero, and sticky footer */
+:root{
+  --brand-blue:#0f2a3a;
+  --brand-orange:#f5a623;
+  --brand-yellow:#ffc107;
+  --page-max: 1200px;
+}
+
+/* basic page paddings so the sticky footer won't overlap */
+body{
+  margin:0;
+  font-family: "Noto Sans TC", "思源黑體 TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background:#0c1923;
+  color:#fff;
+  padding-bottom: 84px; /* room for sticky footer */
+}
+
+/* top nav placeholder (kept minimal as user wants static look) */
+.topbar{
+  background:#0f2a3a;
+  position:relative;
+  z-index:10;
+  border-bottom:4px solid rgba(255,196,0,.35);
+}
+.topbar .wrap{
+  max-width: var(--page-max);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:10px 16px;
+}
+.topbar .brand{
+  display:flex; align-items:center; gap:12px;
+}
+.topbar .brand img{ height:40px; }
+.topbar nav a{
+  color:#fff; text-decoration:none; margin-right:16px; font-weight:600; font-size:15px;
+}
+.topbar nav a:hover{ color: var(--brand-yellow);}
+
+/* hazard stripe bar */
+.hazard{
+  height:18px;
+  background:
+    repeating-linear-gradient(-45deg,
+      #f6b100 0 14px,
+      #0f2a3a 14px 28px);
+  box-shadow: 0 1px 0 rgba(0,0,0,.25) inset, 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* hero image band */
+.hero{
+  background: radial-gradient(ellipse at center, #173a4f 0, #0c1923 60%);
+  border-bottom:4px solid rgba(255,196,0,.35);
+}
+.hero .wrap{
+  max-width: var(--page-max);
+  margin:0 auto;
+}
+.hero img{
+  width:100%;
+  display:block;
+  border-radius:10px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+
+/* main container on pages */
+.main{
+  max-width: var(--page-max);
+  margin:28px auto;
+  padding:0 16px;
+}
+
+/* sticky footer bar with hazard stripe and yellow band */
+.footer-sticky{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:20;
+}
+.footer-sticky .hazard{ height:14px; }
+.footer-sticky .bar{
+  background:#f5a623;
+  color:#0f2a3a;
+  font-weight:700;
+  padding:10px 16px;
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  letter-spacing:.5px;
+  box-shadow: 0 -6px 20px rgba(0,0,0,.25);
+}
+.footer-sticky .bar span{ display:flex; align-items:center; gap:8px; }
+.footer-sticky .bar a{ color:#0f2a3a; text-decoration:none; }
